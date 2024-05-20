@@ -18,7 +18,7 @@ const me = {
   name: "Peter",
   age: 27,
 };
-//alert(me.name);
+alert(me.name);
 
 /// ////////////// PROBLEM 2 ///////////////////
 
@@ -42,7 +42,7 @@ const favoriteThings = {
 */
 
 favoriteThings.car = "Audi";
-favoriteThings[brand] = "Adidas";
+favoriteThings["brand"] = "Adidas";
 
 /*
   Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
@@ -50,7 +50,7 @@ favoriteThings[brand] = "Adidas";
 */
 
 favoriteThings.food = "Chicken Nuggets";
-favoriteThings[book] = "Harry Potter";
+favoriteThings["book"] = "Harry Potter";
 
 /// ////////////// PROBLEM 3 ///////////////////
 
@@ -206,7 +206,7 @@ const carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables.
 */
 
-//Code Here
+const { color, make, model, year } = carDetails;
 
 /// ////////////// PROBLEM 12 ///////////////////
 
@@ -217,7 +217,7 @@ const carDetails = {
 */
 
 function greeting(obj) {
-  //Code Here
+  const { firstName, lastName, title } = obj;
 
   // Do not edit the code below.
   return "Hello, " + title + " " + firstName + " " + lastName + "!";
@@ -234,7 +234,10 @@ function greeting(obj) {
   Sum up the values and return the total number.
 */
 
-//Code Here
+function totalPopulation(obj) {
+  const { utah, california, texas, arizona } = obj;
+  return utah + california + texas + arizona;
+}
 
 /// ////////////// PROBLEM 14 ///////////////////
 
@@ -246,7 +249,14 @@ function greeting(obj) {
   Return false otherwise.
 */
 
-//Code Here
+function usCanadaBorder(arr) {
+  const [latitude, longitude] = arr;
+  if (latitude === 49 && longitude >= -123 && longitude <= -95) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /// ////////////// PROBLEM 15 ///////////////////
 
@@ -292,7 +302,17 @@ const employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+function employeeUpdater() {
+  for (const employee of employees) {
+    if (employee["firstName"] === "Theo") {
+      employees.splice(employees.indexOf(employee), 1);
+    }
+    if (employee["firstName"] === "Lorie") {
+      employee["department"] = "HR";
+    }
+  }
+  return employees;
+}
 
 /// ////////////// PROBLEM 16 ///////////////////
 
@@ -317,10 +337,11 @@ const cat = {
     1. Assign the value of Grumpy's 2nd activity to the grumpyActivity variable below.
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
-
-//Code Here
 let grumpyActivity;
 let fluffy2ndFriend;
+
+cat["catFriends"][0]["activities"][1] = grumpyActivity;
+cat["catFriends"][1]["name"] = fluffy2ndFriend;
 
 /// ////////////// PROBLEM 17 ///////////////////
 
@@ -358,7 +379,12 @@ const myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+function recordCleaner() {
+  for (const accidents of myCar["accidents"]) {
+    accidents["atFaultForAccident"] = false;
+  }
+  return;
+}
 
 /// ////////////// PROBLEM 18 ///////////////////
 
@@ -376,7 +402,17 @@ const myCar = {
   Find the smallest number of the three and return that number.
 */
 
-//Code Here
+function largeNumbers({ first, second, third }) {
+  if (first < second && first < third) {
+    return first;
+  }
+  if (second < first && second < third) {
+    return second;
+  }
+  if (third < first && third < second) {
+    return third;
+  }
+}
 
 /// ////////////// PROBLEM 19 ///////////////////
 
@@ -386,4 +422,14 @@ const myCar = {
   Find the longest array and return that array.
 */
 
-//Code Here
+function numberGroups({ a, b, c }) {
+  if (a.length > b.length && a.length > c.length) {
+    return a;
+  }
+  if (b.length > a.length && b.length > c.length) {
+    return b;
+  }
+  if (c.length > a.length && c.length > b.length) {
+    return c;
+  }
+}
